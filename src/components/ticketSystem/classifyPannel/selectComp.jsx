@@ -5,7 +5,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
-
+import { connect } from "react-redux";
+import {setSelectedGoal} from "../../../Redux/ticket/ticketActions"
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function NativeSelects() {
+function NativeSelects({setSelectedGoal}) {
     const classes = useStyles();
     const [state, setState] = React.useState({
         goal: ''
@@ -24,11 +25,12 @@ export default function NativeSelects() {
 
     const handleChange = (event) => {
         const name = event.target.name;
-         setState({
+        setState({
             ...state,
             [name]: event.target.value,
         });
-        
+        setSelectedGoal(event.target.value)
+
     };
 
     return (
@@ -52,3 +54,9 @@ export default function NativeSelects() {
         </div>
     );
 }
+const mapDispatchToProps=dispatch=>{
+    return{
+        setSelectedGoal:goal=>dispatch(setSelectedGoal(goal))
+    }
+}
+export default connect(null,mapDispatchToProps)(NativeSelects)

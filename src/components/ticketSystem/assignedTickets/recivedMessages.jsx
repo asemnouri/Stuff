@@ -1,13 +1,28 @@
 import "../ticketSystem.css"
-import React, { useEffect } from "react"
+import React, { useEffect,useState } from "react"
 import Avatar from '@material-ui/core/Avatar';
-function RecievedMessages() {
-
+import {connect} from "react-redux"
+import {Link} from "react-router-dom"
+function SnoozedMessages({recieved}) {
+    console.log(recieved)
     return (
-        <div className="snoozed">
-            <Avatar className="avatar">H</Avatar>
+        <div>
+        {
+            recieved && recieved.map(element=>{
+                return(
+                    <Link to={`/${element["_id"]}`} style={{textDecoration:"none"}}>
+                    <Avatar className="avatar" >{element['sender'][0]}</Avatar>
+                    </Link>
+                )
+            })
+        }
         </div>
     );
 }
 
-export default RecievedMessages;
+const mapStateToProps=({user:{recieved}})=>{
+    return{
+        recieved
+    }
+}
+export default connect(mapStateToProps)(SnoozedMessages);

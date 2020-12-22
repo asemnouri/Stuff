@@ -28,6 +28,7 @@
     font-size: larger;
     color: rgb(49, 14, 20);
     background-color: rgb(228, 225, 225);
+    position: relative;
 }
 
 .ticket-container__left {
@@ -62,4 +63,10 @@
     border-bottom: 1px solid royalblue;
     display: flex;
     justify-content: flex-start;
+}
+
+.button-style{
+    position: absolute !important;
+    bottom: 15px;
+    right:15px;
 }

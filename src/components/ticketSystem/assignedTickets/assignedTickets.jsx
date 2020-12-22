@@ -9,8 +9,8 @@ function AssignedTickets() {
             <div className="profile-pic">
                 <Avatar className="avatar"><img style={{ width: "50px", height: "50px" }} src="https://static.toiimg.com/photo/72975551.cms" alt="profile-image" /></Avatar>
             </div>
-            <SnoozedMessages />
             <RecievedMessages/>
+            <SnoozedMessages />
         </div>
     );
 }
