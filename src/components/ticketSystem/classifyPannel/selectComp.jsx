@@ -19,35 +19,34 @@ const useStyles = makeStyles((theme) => ({
 export default function NativeSelects() {
     const classes = useStyles();
     const [state, setState] = React.useState({
-        age: '',
-        name: 'hai',
+        goal: ''
     });
 
     const handleChange = (event) => {
         const name = event.target.name;
-        setState({
+         setState({
             ...state,
             [name]: event.target.value,
         });
+        
     };
 
     return (
         <div>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-native-simple">Select</InputLabel>
+                <InputLabel>Select</InputLabel>
                 <Select
                     native
-                    value={state.age}
+                    value={state.goal}
                     onChange={handleChange}
                     inputProps={{
-                        name: 'age',
-                        id: 'age-native-simple',
+                        name: 'goal'
                     }}
                 >
                     <option aria-label="None" value="" />
-                    <option value={10}>Ten</option>
-                    <option value={20}>Twenty</option>
-                    <option value={30}>Thirty</option>
+                    <option value={"Goal one"}>Goal one</option>
+                    <option value={"Goal two"}>Goal two</option>
+                    <option value={"Goal three"}>Goal three</option>
                 </Select>
             </FormControl>
         </div>
