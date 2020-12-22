@@ -1,10 +1,10 @@
 import './App.css';
 import React from "react"
-import { connect } from "react-redux"
+
 
 import MultipleOptions from "./components/MultipleOptions/MultipeOptions.jsx"
+import TicketSystem from "./components/ticketSystem/ticketSystem.jsx"
 
-import { setUserName } from "./Redux/User/userActions"
 
 class  App extends React.Component {
   constructor(props) {
@@ -15,21 +15,13 @@ class  App extends React.Component {
 
     return (
       <div className="App">
-       <MultipleOptions/>
+       {/* <MultipleOptions/> */}
+        <TicketSystem/>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userName: state.user.currentuser
-  }
-}
-const mapDispatchToProps = dispatch => {
-  return {
-    setUserName: user => dispatch(setUserName(user))
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default App;

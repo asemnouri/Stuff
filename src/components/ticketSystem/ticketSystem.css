@@ -1,0 +1,65 @@
+.ticket-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    height: 92vh;
+    background-color: #fdeeee;
+}
+
+.ticket-container__right {
+    display: flex;
+    /* align-items: center; */
+    padding-top: 100px;
+    justify-content: center;
+    width: 70%;
+    height: 100%
+}
+
+.ticket-container__center {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+    width: 35%;
+    height: 100%;
+    padding-top: 100px;
+    padding-left: 25px;
+    font-size: larger;
+    color: rgb(49, 14, 20);
+    background-color: rgb(228, 225, 225);
+}
+
+.ticket-container__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 5%;
+    height: 100%;
+    padding-top: 100px;
+    font-size: larger;
+    color: rgb(49, 14, 20);
+    /* border-right: 1px solid black; */
+}
+
+.avatar {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.snoozed {
+    border-top: 1px solid gray
+}
+
+.profile-pic {
+    border-bottom: 1px solid gray
+}
+
+.classify-word {
+    margin-top: 0px;
+    color: royalblue;
+    border-bottom: 1px solid royalblue;
+    display: flex;
+    justify-content: flex-start;
+}
