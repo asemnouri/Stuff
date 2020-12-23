@@ -12,7 +12,6 @@ function TicketSystem() {
             <AssignedTickets />
             <ClassifyPannel/>
             <ConversationBox/>
-            
         </div>
     );
 }

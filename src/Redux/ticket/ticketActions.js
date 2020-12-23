@@ -14,3 +14,9 @@ export const setMessageGoal=(obj)=>{
         payload:obj
     }
 }
+export const switchToSnoozed=(id)=>{
+    return {
+        type:ticketActionTypes.SET_RECIEVED_SNOOZED,
+        payload:id
+    }
+}

@@ -17,11 +17,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function NativeSelects({setSelectedGoal}) {
+function NativeSelects({setSelectedGoal,pressed,handleGoalSet}) {
     const classes = useStyles();
     const [state, setState] = React.useState({
         goal: ''
     });
+
+    React.useEffect(()=>{
+        setState({goal: ''})
+    },[pressed])
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -30,7 +34,7 @@ function NativeSelects({setSelectedGoal}) {
             [name]: event.target.value,
         });
         setSelectedGoal(event.target.value)
-
+        handleGoalSet(event.target.value)
     };
 
     return (
@@ -46,9 +50,11 @@ function NativeSelects({setSelectedGoal}) {
                     }}
                 >
                     <option aria-label="None" value="" />
-                    <option value={"Goal one"}>Goal one</option>
-                    <option value={"Goal two"}>Goal two</option>
-                    <option value={"Goal three"}>Goal three</option>
+                    <option value={"Buy a product"}>Buy a product</option>
+                    <option value={"Cancel an account"}>Cancel an account</option>
+                    <option value={"Buy and Recommend a gift"}>Buy and Recommend a gift</option>
+                    <option value={"Ask for the business"}>Ask for the business</option>
+
                 </Select>
             </FormControl>
         </div>
@@ -59,4 +65,9 @@ const mapDispatchToProps=dispatch=>{
         setSelectedGoal:goal=>dispatch(setSelectedGoal(goal))
     }
 }
-export default connect(null,mapDispatchToProps)(NativeSelects)
+const mapStateToProps=({user:{pressed}})=>{
+    return{
+        pressed
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(NativeSelects)

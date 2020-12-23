@@ -5,24 +5,29 @@ import NativeSelects from "./selectComp"
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux"
 import { withRouter } from "react-router";
-import {setMessageGoal} from "../../../Redux/ticket/ticketActions"
+import { setMessageGoal } from "../../../Redux/ticket/ticketActions"
 
-function ClassifyPannel({Goal,match,setMessageGoal}) {
+function ClassifyPannel({ Goal, match, setMessageGoal }) {
     const [counter, setCounter] = useState(25)
     const [input, setInput] = useState("")
-    
-    
+    const [goal, setGoal] = useState("")
+
     useEffect(() => {
         setCounter(25 - input.length)
     }, [input])
 
 
-    const handleButtonClick=(e)=>{
+    const handleGoalSet = (goal) => {
+        setGoal(goal)
+    }
+
+    const handleButtonClick = (e) => {
         e.preventDefault()
-        let obj={
-            Goal:Goal,
-            _id:match.params.id,
-            message:input
+        setInput("")
+        let obj = {
+            Goal: Goal,
+            _id: match.params.id,
+            message: input
         }
         setMessageGoal(obj)
     }
@@ -37,7 +42,7 @@ function ClassifyPannel({Goal,match,setMessageGoal}) {
                 <h4 className="classify-word" >Classify</h4>
             </div>
             <small style={{ marginTop: "0px", color: "gray", marginBottom: "10px" }}>What's the user asking for?</small>
-            <NativeSelects />
+            <NativeSelects handleGoalSet={handleGoalSet} />
             <small style={{ marginTop: "10px", color: "gray" }}>Task name as shown to the user</small>
             <TextField
                 onChange={handleTextChange}
@@ -47,6 +52,7 @@ function ClassifyPannel({Goal,match,setMessageGoal}) {
                 placeholder="Start typing..."
                 multiline
                 variant="outlined"
+                value={input}
             />
             {
                 counter > -1
@@ -55,10 +61,11 @@ function ClassifyPannel({Goal,match,setMessageGoal}) {
                     :
                     <small style={{ marginTop: "10px", color: "red" }}>Charecters Left : {counter}</small>
             }
+
             {
-                counter < 25 && counter > -1 && Goal.length //add the selected here
+                counter < 25 && counter > -1 && goal //add the selected here
                     ?
-                    <Button onClick={handleButtonClick} className="button-style" variant="contained" color="primary">proceed</Button>
+                    <Button onClick={handleButtonClick} className="button-style" style={{cursor:"pointer"}} variant="contained" color="primary">proceed</Button>
                     :
                     <Button className="button-style" disabled variant="contained" color="primary">proceed</Button>
 
@@ -71,10 +78,10 @@ const mapStateToProps = ({ user: { Goal } }) => {
         Goal
     }
 }
-const mapDispatchToProps=dispatch=>{
-    return{
-        setMessageGoal:obj=>dispatch(setMessageGoal(obj))
+const mapDispatchToProps = dispatch => {
+    return {
+        setMessageGoal: obj => dispatch(setMessageGoal(obj))
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(ClassifyPannel));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ClassifyPannel));
