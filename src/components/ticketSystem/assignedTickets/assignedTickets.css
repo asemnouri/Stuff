@@ -1,0 +1,67 @@
+.ticket-container__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 5%;
+    height: 100%;
+    padding-top: 100px;
+    font-size: larger;
+    color: rgb(49, 14, 20);
+    /* border-right: 1px solid black; */
+}
+
+.profile-pic {
+    border-bottom: 1px solid gray;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dot__profile {
+    height: 13px;
+    width: 13px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 12px;
+    right: 8px;
+}
+
+.not-seen {
+    position: relative;
+    /* background-color: yellow; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dot__not-seen {
+    height: 13px;
+    width: 13px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 12px;
+    right: 8px;
+}
+
+.snoozed {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+
+.dot__snoozed {
+    height: 13px;
+    width: 13px;
+    background-color: orange;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 12px;
+    right: 8px;
+    font-size: 10px;
+    color: white;
+}

@@ -1,4 +1,5 @@
 import "../ticketSystem.css"
+import "./assignedTickets.css"
 import React, { useEffect } from "react"
 import Avatar from '@material-ui/core/Avatar';
 import RecievedMessages from "./recivedMessages"
@@ -10,6 +11,7 @@ function AssignedTickets({ snoozed, recieved, match, pressed }) {
 
     useEffect(() => {
     }, [pressed])
+
     return (
         <div className="ticket-container__left" >
             <div className="profile-pic">
@@ -35,9 +37,11 @@ function AssignedTickets({ snoozed, recieved, match, pressed }) {
         </div>
     );
 }
+
 const mapStateToProps = ({ user: { snoozed, recieved, pressed } }) => {
     return {
         snoozed, recieved, pressed
     }
 }
+
 export default connect(mapStateToProps)(withRouter(AssignedTickets));

@@ -1,7 +1,4 @@
-import "../ticketSystem.css"
 import React, { useEffect, useState } from "react"
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import InboxIcon from '@material-ui/icons/Inbox';
 import ChatNav from "./chatNav"
 import { connect } from "react-redux"
 import { withRouter } from "react-router"
@@ -9,15 +6,15 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { setChatMessages } from "../../../Redux/ticket/ticketActions"
 
+import "../ticketSystem.css"
+import "./conversationBox.css"
+
 function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages }) {
     const [singleObjRecievd, setSingleObjRecievd] = useState([])
     const [chatArray, setChatArray] = useState([])
     const [goal, setGoal] = useState("")
     const [press, setPressed] = useState(false)
     const [text, setText] = useState("")
-
-    console.log("cccccccccccc", singleObjRecievd)
-
 
     useEffect(() => {
         let arr = recieved.filter(ele => ele._id === match.params.id)
@@ -29,6 +26,7 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
         setGoal(arr[0].Goal)
         setPressed(arr[0].pressed)
     }, [pressed,])
+
     useEffect(() => {
         let arr = recieved.filter(ele => ele._id === match.params.id)
         if (!arr.length) {
@@ -39,7 +37,6 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
         setGoal(arr[0].Goal)
         setPressed(arr[0].pressed)
     }, [match.params.id])
-
 
 
     const handleTextChange = (e) => {
@@ -54,6 +51,7 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
         }
         setText("")
     }
+
     return (
         <div className="ticket-container__right">
             <ChatNav recievedTask={goal} singleObjRecievd={singleObjRecievd} />

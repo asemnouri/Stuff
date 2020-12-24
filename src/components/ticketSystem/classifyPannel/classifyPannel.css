@@ -1,0 +1,28 @@
+.ticket-container__center {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+    width: 35%;
+    height: 100%;
+    padding-top: 100px;
+    padding-left: 25px;
+    font-size: larger;
+    color: rgb(49, 14, 20);
+    background-color: rgb(228, 225, 225);
+    position: relative;
+}
+
+.classify-word {
+    margin-top: 0px;
+    color: royalblue;
+    border-bottom: 1px solid royalblue;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.button-style {
+    position: absolute !important;
+    bottom: 15px;
+    right: 15px;
+}

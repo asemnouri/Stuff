@@ -1,4 +1,3 @@
-import "../ticketSystem.css"
 import TextField from '@material-ui/core/TextField';
 import React, { useEffect, useState } from "react"
 import NativeSelects from "./selectComp"
@@ -6,6 +5,9 @@ import Button from '@material-ui/core/Button';
 import { connect } from "react-redux"
 import { withRouter } from "react-router";
 import { setMessageGoal,setIncreaseCounter } from "../../../Redux/ticket/ticketActions"
+
+import "../ticketSystem.css"
+import "./classifyPannel.css"
 
 function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
     const [counter, setCounter] = useState(25)
@@ -39,6 +41,7 @@ function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
         // let inputValue = e.target.value
         setInput(e.target.value)
     }
+
     return (
         <div className="ticket-container__center">
             <div style={{ marginTop: "10px" }}>
@@ -76,11 +79,13 @@ function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
         </div>
     );
 }
+
 const mapStateToProps = ({ user: { Goal } }) => {
     return {
         Goal
     }
 }
+
 const mapDispatchToProps = dispatch => {
     return {
         setMessageGoal: obj => dispatch(setMessageGoal(obj)),

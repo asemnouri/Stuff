@@ -1,4 +1,5 @@
 import "../ticketSystem.css"
+import "./assignedTickets.css"
 import React, { useEffect } from "react"
 import Avatar from '@material-ui/core/Avatar';
 import { connect } from "react-redux"
@@ -20,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function SnoozedMessages({ snoozed, recieved, element,match }) {
+function SnoozedMessages({ snoozed, recieved, element, match }) {
     const classes = useStyles();
-    const style=(match===element._id)?`${classes.purple} avatar`:"avatar"
+    const style = (match === element._id) ? `${classes.purple} avatar` : "avatar"
     useEffect(() => {
 
     }, [snoozed, recieved])
@@ -37,6 +38,7 @@ function SnoozedMessages({ snoozed, recieved, element,match }) {
         </div>
     );
 }
+
 const mapStateToProps = ({ user: { snoozed, recieved } }) => {
     return {
         snoozed,

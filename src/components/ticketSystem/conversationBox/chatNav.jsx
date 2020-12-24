@@ -26,6 +26,7 @@ function ChatNav({ snoozed, recieved, recievedTask, match, switchToSnoozed, sing
         e.preventDefault()
         switchToSnoozed(match.params.id)
     }
+
     return (
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", }}>
             <h2 style={{ color: "gray" }}>{recievedTask}</h2>
@@ -37,6 +38,7 @@ function ChatNav({ snoozed, recieved, recievedTask, match, switchToSnoozed, sing
         </div>
     );
 }
+
 const mapDispatchToProps = dispatch => {
     return {
         switchToSnoozed: id => dispatch(switchToSnoozed(id)),
@@ -44,6 +46,7 @@ const mapDispatchToProps = dispatch => {
 
     }
 }
+
 const mapStateToProps = ({ user: { recieved, snoozed } }) => {
     return {
         recieved,

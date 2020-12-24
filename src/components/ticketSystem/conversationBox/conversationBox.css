@@ -1,0 +1,57 @@
+.ticket-container__right {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    align-items: flex-start;
+    padding: 20px;
+    padding-top: 100px;
+    /* justify-content: center; */
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+
+.text-container {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.gray-text-message__container {
+    height: 40px;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    align-items: center;
+    width: 100%;
+}
+
+.gray-text-message {
+    background-color: #e4e1e1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
+
+.blue-text-message__container {
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.blue-text-message {
+    background-color: blue;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    color: white;
+}
