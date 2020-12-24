@@ -55,6 +55,9 @@
 
 .snoozed {
     position: relative;
+    display:flex;
+    justify-content:center;
+    /* background-color: yellow; */
 }
 
 .dot__snoozed {
@@ -63,8 +66,8 @@
     background-color: orange;
     border-radius: 50%;
     position: absolute;
-    bottom: 0px;
-    right: 3px;
+    bottom: 12px;
+    right: 8px;
     font-size: 10px;
     color: white;
 }
@@ -72,6 +75,9 @@
 .profile-pic {
     border-bottom: 1px solid gray;
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .dot__profile {
@@ -80,12 +86,16 @@
     background-color: green;
     border-radius: 50%;
     position: absolute;
-    bottom: 10px;
-    right: 2px;
+    bottom: 12px;
+    right: 8px;
 }
 
 .not-seen {
-    position: relative
+    position: relative;
+    /* background-color: yellow; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .dot__not-seen {
@@ -94,8 +104,8 @@
     background-color: red;
     border-radius: 50%;
     position: absolute;
-    bottom: 10px;
-    right: 2px;
+    bottom: 12px;
+    right: 8px;
 }
 
 .classify-word {

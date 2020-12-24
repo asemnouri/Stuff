@@ -3,33 +3,51 @@ import React from "react"
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import InboxIcon from '@material-ui/icons/Inbox';
 import { withRouter } from "react-router";
-import {connect } from "react-redux"
-import {switchToSnoozed} from "../../../Redux/ticket/ticketActions"
+import { connect } from "react-redux"
+import { switchToSnoozed, setHideTicket } from "../../../Redux/ticket/ticketActions"
 
+function ChatNav({ snoozed, recieved, recievedTask, match, switchToSnoozed, singleObjRecievd, setHideTicket, history }) {
 
-function ChatNav({recievedTask,match,switchToSnoozed}) {
-
-    const handleTimeIconClick=(e)=>{
+    const handleInboxClick = (e) => {
         e.preventDefault()
-        console.log("i am clicked")
-        console.log(match.params.id)
+        setHideTicket(match.params.id)
+        let arr = recieved.filter(ele => ele._id != match.params.id)
+        if (!arr.length) {
+            arr = snoozed.filter(ele => ele._id != match.params.id)
+        }
+        if (arr.length > 0) {
+            history.push(`/${arr[0]["_id"]}`)
+        } else {
+            history.push('/')
+        }
+    }
+
+    const handleTimeIconClick = (e) => {
+        e.preventDefault()
         switchToSnoozed(match.params.id)
-        window.location.reload()
     }
     return (
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", }}>
-                <h2 style={{color:"gray"}}>{recievedTask}</h2>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                    <p style={{ marginLeft: "20px" }}>00:00</p>
-                    <AccessTimeIcon style={{ marginLeft: "20px",cursor:"pointer" }} fontSize="medium" onClick={handleTimeIconClick} />
-                    <InboxIcon style={{ marginLeft: "20px" ,cursor:"pointer"}} fontSize="medium" />
-                </div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", }}>
+            <h2 style={{ color: "gray" }}>{recievedTask}</h2>
+            <div style={{ display: "flex", alignItems: "center" }}>
+                <p style={{ marginLeft: "20px" }}>{singleObjRecievd[0] && singleObjRecievd[0].counter}</p>
+                <AccessTimeIcon style={{ marginLeft: "20px", cursor: "pointer" }} fontSize="medium" onClick={handleTimeIconClick} />
+                <InboxIcon onClick={handleInboxClick} style={{ marginLeft: "20px", cursor: "pointer" }} fontSize="medium" />
             </div>
+        </div>
     );
 }
-const mapDispatchToProps =dispatch=>{
-    return{
-        switchToSnoozed:id=>dispatch(switchToSnoozed(id))
+const mapDispatchToProps = dispatch => {
+    return {
+        switchToSnoozed: id => dispatch(switchToSnoozed(id)),
+        setHideTicket: id => dispatch(setHideTicket(id))
+
     }
 }
-export default connect(null,mapDispatchToProps)(withRouter(ChatNav));
+const mapStateToProps = ({ user: { recieved, snoozed } }) => {
+    return {
+        recieved,
+        snoozed
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ChatNav));

@@ -5,9 +5,9 @@ import NativeSelects from "./selectComp"
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux"
 import { withRouter } from "react-router";
-import { setMessageGoal } from "../../../Redux/ticket/ticketActions"
+import { setMessageGoal,setIncreaseCounter } from "../../../Redux/ticket/ticketActions"
 
-function ClassifyPannel({ Goal, match, setMessageGoal }) {
+function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
     const [counter, setCounter] = useState(25)
     const [input, setInput] = useState("")
     const [goal, setGoal] = useState("")
@@ -29,6 +29,9 @@ function ClassifyPannel({ Goal, match, setMessageGoal }) {
             _id: match.params.id,
             message: input
         }
+        setInterval(() => {
+            setIncreaseCounter(obj)
+        }, 60000);
         setMessageGoal(obj)
     }
 
@@ -80,7 +83,9 @@ const mapStateToProps = ({ user: { Goal } }) => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        setMessageGoal: obj => dispatch(setMessageGoal(obj))
+        setMessageGoal: obj => dispatch(setMessageGoal(obj)),
+        setIncreaseCounter: obj => dispatch(setIncreaseCounter(obj))
+
     }
 }
 

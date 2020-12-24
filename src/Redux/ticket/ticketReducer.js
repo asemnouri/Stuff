@@ -1,5 +1,5 @@
 import { ticketActionTypes } from "./ticketActionType"
-import { goalAndMessageHandler, snoozedHandler, recievedHandler,chatMessageHandler } from "./helperFunction"
+import { goalAndMessageHandler, snoozedHandler, recievedHandler, chatMessageHandler, pressHandler, counterHandler } from "./helperFunction"
 const INITAIL_STATE = {
     Goal: "",
     pressed: false,
@@ -13,7 +13,9 @@ const INITAIL_STATE = {
         sender: "Asem",
         message: "",
         chatMessages: [],
-        pressed: false
+        counter: "00:00",
+        pressed: false,
+        seen: false
     }, {
         _id: "5cdb6454107a752e479349K",
         Title: "New Task",
@@ -23,7 +25,9 @@ const INITAIL_STATE = {
         sender: "Kamal",
         message: "",
         chatMessages: [],
-        pressed: false
+        counter: "00:00",
+        pressed: false,
+        seen: false
     },
     {
         _id: "5cdb6454107a752e479349S",
@@ -34,7 +38,9 @@ const INITAIL_STATE = {
         sender: "Sami",
         message: "",
         chatMessages: [],
-        pressed: false
+        counter: "00:00",
+        pressed: false,
+        seen: false
     },
     {
         _id: "5cdb6454107a752e479349I",
@@ -45,7 +51,9 @@ const INITAIL_STATE = {
         sender: "Israa",
         message: "",
         chatMessages: [],
-        pressed: false
+        counter: "00:00",
+        pressed: false,
+        seen: false
     }],
     snoozed: []
 }
@@ -69,12 +77,32 @@ const ticketReducer = (state = INITAIL_STATE, action) => {
                 ...state,
                 snoozed: snoozedHandler(state.snoozed, state.recieved, action.payload),
                 recieved: recievedHandler(state.recieved, action.payload),
+                pressed: !state.pressed
             }
         case ticketActionTypes.SET_CHAT_MESSAGES:
             return {
                 ...state,
                 snoozed: chatMessageHandler(state.snoozed, action.payload),
                 recieved: chatMessageHandler(state.recieved, action.payload),
+            }
+        case ticketActionTypes.SET_SEEN:
+            return {
+                ...state,
+                recieved: pressHandler(state.recieved, action.payload),
+            }
+        case ticketActionTypes.SET_ICREASE_COUNTER:
+            return {
+                ...state,
+                recieved: counterHandler(state.recieved, action.payload),
+                snoozed: counterHandler(state.snoozed, action.payload),
+                pressed: !state.pressed
+            }
+        case ticketActionTypes.SET_HIDE_TICKET:
+            return {
+                ...state,
+                recieved: recievedHandler(state.recieved, action.payload),
+                snoozed: recievedHandler(state.snoozed, action.payload),
+                pressed: !state.pressed
             }
         default:
             return state

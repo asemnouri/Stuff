@@ -4,9 +4,12 @@ import Avatar from '@material-ui/core/Avatar';
 import RecievedMessages from "./recivedMessages"
 import SnoozedMessages from "./snoozedMessages"
 import { connect } from "react-redux";
-function AssignedTickets({ snoozed, recieved }) {
-    // console.log('mm',snoozed,recieved)
+import { withRouter } from "react-router";
 
+function AssignedTickets({ snoozed, recieved, match, pressed }) {
+
+    useEffect(() => {
+    }, [pressed])
     return (
         <div className="ticket-container__left" >
             <div className="profile-pic">
@@ -16,25 +19,25 @@ function AssignedTickets({ snoozed, recieved }) {
             {
                 recieved && recieved.map((element, i) => {
                     return (
-                        <RecievedMessages element={element} key={i} />
+                        <RecievedMessages element={element} key={i} match={match.params.id} />
                     )
                 })
             }
-                <div style={{borderTop:" 1px solid gray"}}>
-            {
-                snoozed && snoozed.map((element, i) => {
-                    return (
-                        <SnoozedMessages element={element} key={i} />
-                    )
-                })
-            }
-                </div>
+            <div style={{ borderTop: " 1px solid gray", width: "100%" }}>
+                {
+                    snoozed && snoozed.map((element, i) => {
+                        return (
+                            <SnoozedMessages element={element} key={i} match={match.params.id} />
+                        )
+                    })
+                }
+            </div>
         </div>
     );
 }
-const mapStateToProps = ({ user: { snoozed, recieved } }) => {
+const mapStateToProps = ({ user: { snoozed, recieved, pressed } }) => {
     return {
-        snoozed, recieved
+        snoozed, recieved, pressed
     }
 }
-export default connect(mapStateToProps)(AssignedTickets);
+export default connect(mapStateToProps)(withRouter(AssignedTickets));

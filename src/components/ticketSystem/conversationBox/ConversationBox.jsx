@@ -15,9 +15,8 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
     const [goal, setGoal] = useState("")
     const [press, setPressed] = useState(false)
     const [text, setText] = useState("")
-    console.log("reacieved", recieved)
-    let arr = recieved.filter(ele => ele._id === match.params.id)
-    console.log(arr)
+
+    console.log("cccccccccccc", singleObjRecievd)
 
 
     useEffect(() => {
@@ -25,16 +24,17 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
         if (!arr.length) {
             arr = snoozed.filter(ele => ele._id === match.params.id)
         }
-        console.log("arrrr", arr)
+        setSingleObjRecievd(arr)
         setChatArray(arr[0]['chatMessages'])
         setGoal(arr[0].Goal)
         setPressed(arr[0].pressed)
-    }, [pressed])
+    }, [pressed,])
     useEffect(() => {
         let arr = recieved.filter(ele => ele._id === match.params.id)
         if (!arr.length) {
             arr = snoozed.filter(ele => ele._id === match.params.id)
         }
+        setSingleObjRecievd(arr)
         setChatArray(arr[0]['chatMessages'])
         setGoal(arr[0].Goal)
         setPressed(arr[0].pressed)
@@ -56,13 +56,13 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
     }
     return (
         <div className="ticket-container__right">
-            <ChatNav recievedTask={goal} />
+            <ChatNav recievedTask={goal} singleObjRecievd={singleObjRecievd} />
             <div className="text-container">
                 <div className="gray-text-message__container">
                     <p className="gray-text-message" >I'd like to do something(first message in a task)</p>
                 </div>
                 {
-                    chatArray.map((ele, i) => {
+                    chatArray && chatArray.map((ele, i) => {
                         return (
                             <div className="blue-text-message__container" key={i}>
                                 <p className="blue-text-message" >{ele}</p>
