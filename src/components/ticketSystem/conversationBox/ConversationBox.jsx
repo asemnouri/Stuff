@@ -25,8 +25,10 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
         setChatArray(arr[0]['chatMessages'])
         setGoal(arr[0].Goal)
         setPressed(arr[0].pressed)
-    }, [pressed,])
+    }, [pressed])
 
+
+    //whenever a change in the link useEffect will fire
     useEffect(() => {
         let arr = recieved.filter(ele => ele._id === match.params.id)
         if (!arr.length) {
@@ -43,6 +45,7 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
         setText(e.target.value)
     }
 
+    //handlig the submession of the messages posted by the user
     const handleSubmit = (e) => {
         e.preventDefault()
         if (text) {

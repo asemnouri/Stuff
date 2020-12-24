@@ -27,6 +27,7 @@ function NativeSelects({setSelectedGoal,pressed,handleGoalSet}) {
         setState({goal: ''})
     },[pressed])
 
+    //handling change in the selected goal
     const handleChange = (event) => {
         const name = event.target.name;
         setState({

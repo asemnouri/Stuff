@@ -14,15 +14,17 @@ function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
     const [input, setInput] = useState("")
     const [goal, setGoal] = useState("")
 
+    //handling the imput counter change
     useEffect(() => {
         setCounter(25 - input.length)
     }, [input])
 
-
+    //setting the goal in redux
     const handleGoalSet = (goal) => {
         setGoal(goal)
     }
 
+    //changing the input from disabled to enabled, and starting the counter using setInterval
     const handleButtonClick = (e) => {
         e.preventDefault()
         setInput("")
@@ -37,8 +39,8 @@ function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
         setMessageGoal(obj)
     }
 
+    //changing the state when the input changed
     const handleTextChange = (e) => {
-        // let inputValue = e.target.value
         setInput(e.target.value)
     }
 

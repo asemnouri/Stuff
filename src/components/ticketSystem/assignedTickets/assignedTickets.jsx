@@ -18,7 +18,7 @@ function AssignedTickets({ snoozed, recieved, match, pressed }) {
                 <Avatar className="avatar"><img style={{ width: "50px", height: "50px" }} src="https://static.toiimg.com/photo/72975551.cms" alt="profile-image" /></Avatar>
                 <span class="dot__profile"></span>
             </div>
-            {
+            {//mapping over the recieved messages and previewing them as avatars
                 recieved && recieved.map((element, i) => {
                     return (
                         <RecievedMessages element={element} key={i} match={match.params.id} />
@@ -26,7 +26,7 @@ function AssignedTickets({ snoozed, recieved, match, pressed }) {
                 })
             }
             <div style={{ borderTop: " 1px solid gray", width: "100%" }}>
-                {
+                {//mapping over the snoozed(if there is any) messages and previewing them as avatars
                     snoozed && snoozed.map((element, i) => {
                         return (
                             <SnoozedMessages element={element} key={i} match={match.params.id} />

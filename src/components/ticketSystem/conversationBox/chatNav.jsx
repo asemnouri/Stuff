@@ -10,6 +10,7 @@ import "./conversationBox.css"
 
 function ChatNav({ snoozed, recieved, recievedTask, match, switchToSnoozed, singleObjRecievd, setHideTicket, history }) {
 
+    //handling the hiding of the ticket when a inbox button is clicked
     const handleInboxClick = (e) => {
         e.preventDefault()
         setHideTicket(match.params.id)
@@ -24,6 +25,7 @@ function ChatNav({ snoozed, recieved, recievedTask, match, switchToSnoozed, sing
         }
     }
 
+    //switching to snoozed when clicking on the sooze button
     const handleTimeIconClick = (e) => {
         e.preventDefault()
         switchToSnoozed(match.params.id)
