@@ -12,12 +12,12 @@
     flex-direction: column;
     /* align-items: center; */
     align-items: flex-start;
-    padding:20px;
+    padding: 20px;
     padding-top: 100px;
     /* justify-content: center; */
     width: 70%;
     height: 100%;
-    position: relative ;
+    position: relative;
 }
 
 .ticket-container__center {
@@ -49,16 +49,53 @@
 }
 
 .avatar {
-    margin-bottom: 15px;
-    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .snoozed {
-    border-top: 1px solid gray
+    position: relative;
+}
+
+.dot__snoozed {
+    height: 13px;
+    width: 13px;
+    background-color: orange;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0px;
+    right: 3px;
+    font-size: 10px;
+    color: white;
 }
 
 .profile-pic {
-    border-bottom: 1px solid gray
+    border-bottom: 1px solid gray;
+    position: relative;
+}
+
+.dot__profile {
+    height: 13px;
+    width: 13px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 2px;
+}
+
+.not-seen {
+    position: relative
+}
+
+.dot__not-seen {
+    height: 13px;
+    width: 13px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 2px;
 }
 
 .classify-word {
@@ -69,8 +106,54 @@
     justify-content: flex-start;
 }
 
-.button-style{
+.button-style {
     position: absolute !important;
     bottom: 15px;
-    right:15px;
+    right: 15px;
+}
+
+
+.text-container {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.blue-text-message__container {
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.blue-text-message {
+    background-color: blue;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    color: white;
+}
+
+.gray-text-message__container {
+    height: 40px;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    align-items: center;
+    width: 100%;
+}
+
+.gray-text-message {
+    background-color: #e4e1e1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
 }

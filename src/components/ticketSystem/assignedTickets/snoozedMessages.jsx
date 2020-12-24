@@ -3,26 +3,21 @@ import React, { useEffect } from "react"
 import Avatar from '@material-ui/core/Avatar';
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
-function SnoozedMessages({ snoozed,recieved }) {
+function SnoozedMessages({ snoozed, recieved, element }) {
 
-    useEffect(()=>{
+    useEffect(() => {
 
-    },[snoozed,recieved])
+    }, [snoozed, recieved])
     return (
         <div className="snoozed">
-            {
-                snoozed && snoozed.map((element, i) => {
-                    return (
-                        <Link to={`/${element["_id"]}`} style={{ textDecoration: "none" }} key={i}>
-                            <Avatar className="avatar">{element['sender'][0]}</Avatar>
-                        </Link>
-                    )
-                })
-            }
+            <Link to={`/${element["_id"]}`} style={{ textDecoration: "none" }} >
+                <Avatar className="avatar">{element['sender'][0]}</Avatar>
+                <span class="dot__snoozed">s</span>
+            </Link>
         </div>
     );
 }
-const mapStateToProps = ({ user: { snoozed,recieved } }) => {
+const mapStateToProps = ({ user: { snoozed, recieved } }) => {
     return {
         snoozed,
         recieved

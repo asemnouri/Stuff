@@ -27,3 +27,12 @@ export const snoozedHandler = (SnoozedMessages, RecievedMessages, id) => {
     }
     return SnoozedMessages
 }
+
+export const chatMessageHandler = (RecievedMessages, messageToEdit) => {
+    for (let i = 0; i < RecievedMessages.length; i++) {
+        if (RecievedMessages[i]["_id"] === messageToEdit["_id"]) {
+            RecievedMessages[i]["chatMessages"] = [...RecievedMessages[i]["chatMessages"], messageToEdit["newMessage"]]
+        }
+    }
+    return RecievedMessages
+}

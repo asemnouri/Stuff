@@ -20,3 +20,10 @@ export const switchToSnoozed=(id)=>{
         payload:id
     }
 }
+
+export const setChatMessages=(obj)=>{
+    return {
+        type:ticketActionTypes.SET_CHAT_MESSAGES,
+        payload:obj
+    }
+}

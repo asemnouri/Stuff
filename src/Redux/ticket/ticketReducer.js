@@ -1,5 +1,5 @@
 import { ticketActionTypes } from "./ticketActionType"
-import { goalAndMessageHandler, snoozedHandler, recievedHandler } from "./helperFunction"
+import { goalAndMessageHandler, snoozedHandler, recievedHandler,chatMessageHandler } from "./helperFunction"
 const INITAIL_STATE = {
     Goal: "",
     pressed: false,
@@ -13,7 +13,7 @@ const INITAIL_STATE = {
         sender: "Asem",
         message: "",
         chatMessages: [],
-        pressed:false
+        pressed: false
     }, {
         _id: "5cdb6454107a752e479349K",
         Title: "New Task",
@@ -23,7 +23,7 @@ const INITAIL_STATE = {
         sender: "Kamal",
         message: "",
         chatMessages: [],
-        pressed:false
+        pressed: false
     },
     {
         _id: "5cdb6454107a752e479349S",
@@ -34,7 +34,7 @@ const INITAIL_STATE = {
         sender: "Sami",
         message: "",
         chatMessages: [],
-        pressed:false
+        pressed: false
     },
     {
         _id: "5cdb6454107a752e479349I",
@@ -45,7 +45,7 @@ const INITAIL_STATE = {
         sender: "Israa",
         message: "",
         chatMessages: [],
-        pressed:false
+        pressed: false
     }],
     snoozed: []
 }
@@ -61,6 +61,7 @@ const ticketReducer = (state = INITAIL_STATE, action) => {
             return {
                 ...state,
                 recieved: goalAndMessageHandler(state.recieved, action.payload),
+                snoozed: goalAndMessageHandler(state.snoozed, action.payload),
                 pressed: !state.pressed
             }
         case ticketActionTypes.SET_RECIEVED_SNOOZED:
@@ -68,6 +69,12 @@ const ticketReducer = (state = INITAIL_STATE, action) => {
                 ...state,
                 snoozed: snoozedHandler(state.snoozed, state.recieved, action.payload),
                 recieved: recievedHandler(state.recieved, action.payload),
+            }
+        case ticketActionTypes.SET_CHAT_MESSAGES:
+            return {
+                ...state,
+                snoozed: chatMessageHandler(state.snoozed, action.payload),
+                recieved: chatMessageHandler(state.recieved, action.payload),
             }
         default:
             return state
