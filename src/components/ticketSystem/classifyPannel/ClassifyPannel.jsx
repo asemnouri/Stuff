@@ -54,7 +54,7 @@ function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
                 onChange={handleTextChange}
                 style={{ width: "80%", marginBottom: "10px", marginTop: "25px" }}
                 id="outlined-textarea"
-                label="Buy what"
+                label="Buy Title"
                 placeholder="Start typing..."
                 multiline
                 variant="outlined"

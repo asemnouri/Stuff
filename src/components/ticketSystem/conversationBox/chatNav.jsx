@@ -1,10 +1,12 @@
-import "../ticketSystem.css"
 import React from "react"
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import InboxIcon from '@material-ui/icons/Inbox';
 import { withRouter } from "react-router";
 import { connect } from "react-redux"
 import { switchToSnoozed, setHideTicket } from "../../../Redux/ticket/ticketActions"
+
+import "../ticketSystem.css"
+import "./conversationBox.css"
 
 function ChatNav({ snoozed, recieved, recievedTask, match, switchToSnoozed, singleObjRecievd, setHideTicket, history }) {
 
@@ -28,9 +30,14 @@ function ChatNav({ snoozed, recieved, recievedTask, match, switchToSnoozed, sing
     }
 
     return (
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", }}>
-            <h2 style={{ color: "gray" }}>{recievedTask}</h2>
-            <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="chat-nav">
+            {
+                (recievedTask === "New Task") ?
+                    <h2 style={{ color: "gray" }}>{recievedTask}</h2>
+                    :
+                    <h2 >{recievedTask}</h2>
+            }
+            <div style={{display:"flex",alignItems:"center"}} >
                 <p style={{ marginLeft: "20px" }}>{singleObjRecievd[0] && singleObjRecievd[0].counter}</p>
                 <AccessTimeIcon style={{ marginLeft: "20px", cursor: "pointer" }} fontSize="medium" onClick={handleTimeIconClick} />
                 <InboxIcon onClick={handleInboxClick} style={{ marginLeft: "20px", cursor: "pointer" }} fontSize="medium" />
