@@ -1,6 +1,6 @@
 import "./phone.css"
 
-import React, { useEffect } from "react"
+import React from "react"
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -25,6 +25,7 @@ let countries = [
     }
     
 ]
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
@@ -40,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
         width: "30ch"
     }
 }));
+
 function Phone() {
     const [display, setDisplay] = React.useState("none")
     const [data, setData] = React.useState([])
@@ -56,6 +58,7 @@ function Phone() {
             setData(["no results"])
         }
     }
+
     const handleClickSearch = () => {
         if (!data.length) {
             setData(countries)
@@ -104,10 +107,6 @@ function Phone() {
                         }
                     </div>
                 </div>
-                {/* <input type="text" />
-                    <label>
-                        Name
-                    </label> */}
             </div>
         </div>
     );

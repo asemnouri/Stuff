@@ -1,11 +1,9 @@
-
 import React from "react"
 import { Link } from "react-router-dom"
 import Button from '@material-ui/core/Button';
 class Home extends React.Component {
     constructor(props) {
         super(props)
-
     }
     render() {
 

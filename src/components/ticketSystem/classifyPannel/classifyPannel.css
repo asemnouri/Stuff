@@ -25,4 +25,36 @@
     position: absolute !important;
     bottom: 15px;
     right: 15px;
+    display: block;
+    width: 150px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: #1c89ff;
+    border: solid 1px transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.button-style:hover {
+    background-color: transparent;
+    border-color: #1c89ff;
+    color: #1c89ff;
+    transition: all .1s ease-in-out;
+}
+
+.disabled{
+    position: absolute !important;
+    bottom: 15px;
+    right: 15px;
+    display: block;
+    width: 150px;
+    height: 36px;
+    font-size: 18px;
+    font-weight: 300;
+    border: solid 1px gray;
+    border-radius: 18px;
+    
 }

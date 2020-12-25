@@ -73,9 +73,10 @@ function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
             {
                 counter < 25 && counter > -1 && goal //add the selected here
                     ?
-                    <Button onClick={handleButtonClick} className="button-style" style={{cursor:"pointer"}} variant="contained" color="primary">proceed</Button>
+                    <button className="button-style" onClick={handleButtonClick}>PROCEED</button>
                     :
-                    <Button className="button-style" disabled variant="contained" color="primary">proceed</Button>
+                    <button className="disabled" type="button" disabled >PROCEED</button>
+                    
 
             }
         </div>

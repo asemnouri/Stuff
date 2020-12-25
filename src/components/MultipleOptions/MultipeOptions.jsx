@@ -21,7 +21,7 @@ let mydata = [
         "name": "Special restrections",
         "icon": false
     },
-    
+
 ]
 
 function MultipleOptions() {
@@ -30,7 +30,6 @@ function MultipleOptions() {
 
 
     useEffect(() => {
-        console.log("called")
     }, [res, data])
 
     const handleTextChange = (e) => {
@@ -40,6 +39,7 @@ function MultipleOptions() {
         let newData = myData.filter(element => element['name'].toLowerCase().includes(inputValue))
         setData(newData)
     }
+    
     const handleIconClick = (recievedData) => {
         let index2 = mydata.findIndex(ele => ele['name'] === recievedData);
         mydata[index2]["icon"] = true
@@ -68,9 +68,9 @@ function MultipleOptions() {
                                                 <CheckIcon />
                                             </div>
                                             :
-                                            <div className="search_data">
+                                            <div className="search_data" style={{ cursor: "pointer" }} onClick={(e) => { e.preventDefault(); handleIconClick(element['name']) }}>
                                                 <h3>{element['name']}</h3>
-                                                <AddIcon onClick={(e) => { e.preventDefault(); handleIconClick(element['name']) }} />
+                                                <AddIcon />
                                             </div>}
                                     </div>
 

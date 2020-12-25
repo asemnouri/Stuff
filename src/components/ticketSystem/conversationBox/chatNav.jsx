@@ -14,9 +14,9 @@ function ChatNav({ snoozed, recieved, recievedTask, match, switchToSnoozed, sing
     const handleInboxClick = (e) => {
         e.preventDefault()
         setHideTicket(match.params.id)
-        let arr = recieved.filter(ele => ele._id != match.params.id)
+        let arr = recieved.filter(ele => ele._id !== match.params.id)
         if (!arr.length) {
-            arr = snoozed.filter(ele => ele._id != match.params.id)
+            arr = snoozed.filter(ele => ele._id !== match.params.id)
         }
         if (arr.length > 0) {
             history.push(`/${arr[0]["_id"]}`)

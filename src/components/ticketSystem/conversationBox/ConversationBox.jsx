@@ -78,9 +78,10 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
             </div>
             {
                 press ?
-                    <form onSubmit={handleSubmit} style={{ position: "absolute", zIndex: "1", bottom: '30px', right: '30px', width: "90%", display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+                    <form onSubmit={handleSubmit}  style={{ position: "absolute", zIndex: "1", bottom: '30px', right: '30px', width: "90%", display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
                         <TextField onChange={handleTextChange} value={text} id="standard-required" label="Type a message here" type='text' name='text' style={{ width: "100%" }} />
-                        <Button style={{ paddingBottom: "0px" }} type='submit' className='dialog_button' color="primary"> Send </Button>
+                        {/* <Button style={{ paddingBottom: "0px" }} type='submit' className='dialog_button' color="primary"> Send </Button> */}
+                        <button className="button" type='submit'>SEND</button>
                     </form>
                     :
                     <TextField disabled id="standard-disabled" label="🚫Type a message here" style={{ width: "90%", zIndex: "1", position: "absolute", bottom: '30px', right: '30px' }} />

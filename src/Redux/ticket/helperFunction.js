@@ -3,6 +3,8 @@ export const goalAndMessageHandler = (RecievedMessages, messageToEdit) => {
         if (RecievedMessages[i]["_id"] === messageToEdit["_id"]) {
             RecievedMessages[i]["Goal"] = messageToEdit["Goal"]
             RecievedMessages[i]["message"] = messageToEdit["message"]
+            RecievedMessages[i]["Title"] = messageToEdit["message"]
+
             RecievedMessages[i]["pressed"] = true
         }
     }
