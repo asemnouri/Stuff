@@ -21,6 +21,7 @@ function ClassifyPannel({ Goal, match, setMessageGoal, setIncreaseCounter }) {
 
     //setting the goal in redux
     const handleGoalSet = (goal) => {
+        
         setGoal(goal)
     }
 
@@ -37,6 +38,7 @@ function ClassifyPannel({ Goal, match, setMessageGoal, setIncreaseCounter }) {
             setIncreaseCounter(obj)
         }, 60000);
         setMessageGoal(obj)
+        setGoal("")
     }
 
     //changing the state when the input changed
