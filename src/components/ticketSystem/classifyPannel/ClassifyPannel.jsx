@@ -4,12 +4,12 @@ import NativeSelects from "./selectComp"
 import Button from '@material-ui/core/Button';
 import { connect } from "react-redux"
 import { withRouter } from "react-router";
-import { setMessageGoal,setIncreaseCounter } from "../../../Redux/ticket/ticketActions"
+import { setMessageGoal, setIncreaseCounter } from "../../../Redux/ticket/ticketActions"
 
 import "../ticketSystem.css"
 import "./classifyPannel.css"
 
-function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
+function ClassifyPannel({ Goal, match, setMessageGoal, setIncreaseCounter }) {
     const [counter, setCounter] = useState(25)
     const [input, setInput] = useState("")
     const [goal, setGoal] = useState("")
@@ -76,7 +76,7 @@ function ClassifyPannel({ Goal, match, setMessageGoal,setIncreaseCounter }) {
                     <button className="button-style" onClick={handleButtonClick}>PROCEED</button>
                     :
                     <button className="disabled" type="button" disabled >PROCEED</button>
-                    
+
 
             }
         </div>

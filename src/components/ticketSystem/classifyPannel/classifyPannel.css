@@ -45,7 +45,7 @@
     transition: all .1s ease-in-out;
 }
 
-.disabled{
+.disabled {
     position: absolute !important;
     bottom: 15px;
     right: 15px;
@@ -56,5 +56,4 @@
     font-weight: 300;
     border: solid 1px gray;
     border-radius: 18px;
-    
 }
