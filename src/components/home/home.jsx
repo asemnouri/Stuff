@@ -21,7 +21,7 @@ class Home extends React.Component {
                 </div>
                 <div>
                     <p>task one part 2</p>
-                    <Link to="/multipleoptions" style={{ textDecoration: "none" }}>
+                    <Link to="/phone" style={{ textDecoration: "none" }}>
                         <Button variant="outlined" color="primary">
                             task one part 2
                         </Button>

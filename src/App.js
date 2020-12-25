@@ -3,6 +3,7 @@ import React from "react"
 
 
 import MultipleOptions from "./components/MultipleOptions/MultipeOptions.jsx"
+import Phone from "./components/phone/phone.jsx"
 import TicketSystem from "./components/ticketSystem/ticketSystem.jsx"
 import { Route, Switch } from 'react-router-dom';
 import Home from "./components/home/home"
@@ -16,7 +17,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-        <Route exact path='/multipleoptions' render={(props) => <MultipleOptions {...props} />} />
+          <Route exact path='/multipleoptions' render={(props) => <MultipleOptions {...props} />} />
+          <Route exact path='/phone' render={(props) => <Phone {...props} />} />
           <Route exact path='/:id' render={(props) => <TicketSystem {...props} />} />
           <Route exact path='/' render={(props) => <Home {...props} />} />
         </Switch>

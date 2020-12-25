@@ -21,10 +21,12 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
         if (!arr.length) {
             arr = snoozed.filter(ele => ele._id === match.params.id)
         }
-        setSingleObjRecievd(arr)
-        setChatArray(arr[0]['chatMessages'])
-        setGoal(arr[0].Goal)
-        setPressed(arr[0].pressed)
+        if (arr[0]) {
+            setSingleObjRecievd(arr)
+            setChatArray(arr[0]['chatMessages'])
+            setGoal(arr[0].Goal)
+            setPressed(arr[0].pressed)
+        }
     }, [pressed])
 
 
@@ -34,10 +36,12 @@ function ConversationBox({ recieved, match, pressed, snoozed, setChatMessages })
         if (!arr.length) {
             arr = snoozed.filter(ele => ele._id === match.params.id)
         }
-        setSingleObjRecievd(arr)
-        setChatArray(arr[0]['chatMessages'])
-        setGoal(arr[0].Goal)
-        setPressed(arr[0].pressed)
+        if (arr[0]) {
+            setSingleObjRecievd(arr)
+            setChatArray(arr[0]['chatMessages'])
+            setGoal(arr[0].Goal)
+            setPressed(arr[0].pressed)
+        }
     }, [match.params.id])
 
 

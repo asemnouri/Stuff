@@ -20,7 +20,8 @@ let mydata = [
     {
         "name": "Special restrections",
         "icon": false
-    }
+    },
+    
 ]
 
 function MultipleOptions() {
@@ -56,7 +57,7 @@ function MultipleOptions() {
             <div className="container__right">
                 <div className="right__comp" >
                     <TextField onChange={handleTextChange} style={{ width: "100%", marginBottom: "10px" }} id="standard-basic" label="Search Questions" />
-                    <div style={{overflow:"hidden"}}>
+                    <div className="task-list">
                         {
                             data && data.map((element, i) => {
                                 return (
